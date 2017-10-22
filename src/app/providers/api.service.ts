@@ -8,7 +8,7 @@ import 'rxjs/add/operator/share';
  */
 @Injectable()
 export class ApiService {
-  // url = 'https://pavitra-creation.herokuapp.com/api'; // Production URL
+  // url = 'https://twitter-trends-dubai.herokuapp.com/api'; // Production URL
   url = 'http://localhost:3000/api'; // Localhost
 
   constructor(public http: Http) { }
