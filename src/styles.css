@@ -34,3 +34,7 @@ a:active {
 .error-text {
   color: #f00;
 }
+
+.loader-container {
+  padding: 10px;
+}

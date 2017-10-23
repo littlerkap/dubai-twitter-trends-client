@@ -13,13 +13,15 @@ import { AppComponent } from './app.component';
 import { TrendingTopicsComponent } from './components/trending-topics/trending-topics.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { TweetsComponent } from './components/tweets/tweets.component';
+import { TweetComponent } from './components/tweet/tweet.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TrendingTopicsComponent,
     PageNotFoundComponent,
-    TweetsComponent
+    TweetsComponent,
+    TweetComponent
   ],
   imports: [
     BrowserModule,

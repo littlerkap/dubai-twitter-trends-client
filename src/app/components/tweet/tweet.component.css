@@ -1,0 +1,31 @@
+:host {
+  background-color: #fff;
+  color: #1c2022;
+  border: 1px solid #e1e8ed;
+  border-radius: 4px;
+  font-size: 16px;
+  display: block;
+  padding: 20px;
+  max-width: 480px;
+  margin: 0 auto 4px;
+}
+
+.screen-name {
+  color: #697882;
+  font-size: 14px;
+}
+
+.tweet-text {
+  margin-top: 12px;
+}
+
+.date-time,
+.meta-data {
+  font-size: 14px;
+  color: #697882;
+  margin-top: 4px;
+}
+
+.meta-data {
+  margin-top: 12px;
+}

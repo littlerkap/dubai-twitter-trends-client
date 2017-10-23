@@ -1,0 +1,11 @@
+<div class="user-data">
+  <strong>{{data.user.name}}</strong>
+  <br/>
+  <span class="screen-name">&#64;{{data.user.screen_name}}</span>
+</div>
+<div class="tweet-text">{{data.text}}</div>
+<div class="date-time">{{formatDate(data.created_at)}}</div>
+<div class="meta-data">
+  <span>Retweets: {{data.retweet_count}}</span> &#160;&#160;
+  <span>Favorites: {{data.favorite_count}}</span>
+</div>

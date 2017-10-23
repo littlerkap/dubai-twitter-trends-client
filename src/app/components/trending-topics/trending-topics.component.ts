@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-
 import { ApiService } from '../../providers/api.service';
 
 @Component({
@@ -12,7 +11,7 @@ export class TrendingTopicsComponent implements OnInit {
   loading: Boolean = false;
   errorMessage: String;
 
-  constructor(public api: ApiService) {
+  constructor(private api: ApiService) {
   }
 
   ngOnInit() {
