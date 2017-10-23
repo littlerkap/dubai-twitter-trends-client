@@ -3,13 +3,14 @@ import { Http, RequestOptions, URLSearchParams } from '@angular/http';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/share';
 
+import { environment } from '../../environments/environment';
+
 /**
  * Api is a generic REST Api handler. Set your API url first.
  */
 @Injectable()
 export class ApiService {
-  // url = 'https://twitter-trends-dubai.herokuapp.com/api'; // Production URL
-  url = 'http://localhost:3000/api'; // Localhost
+  url = environment.apiUrl + '/api';
 
   constructor(public http: Http) { }
 
