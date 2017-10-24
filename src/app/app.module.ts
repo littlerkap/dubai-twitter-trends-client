@@ -6,7 +6,7 @@ import { HttpModule } from '@angular/http';
 import { ApiService } from './providers/api.service';
 import { TweetStreamingService } from './providers/tweet-streaming.service';
 
-// Modules
+// Custom Modules
 import { AppRoutingModule } from './app-routing.module';
 
 // Components
@@ -29,7 +29,10 @@ import { TweetComponent } from './components/tweet/tweet.component';
     HttpModule,
     AppRoutingModule
   ],
-  providers: [ApiService, TweetStreamingService],
+  providers: [
+    ApiService,
+    TweetStreamingService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

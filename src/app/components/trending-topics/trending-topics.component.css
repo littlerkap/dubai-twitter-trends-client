@@ -5,9 +5,9 @@
 .topics-container {
   background-color: #fff;
   border: 1px solid #e6ecf0;
-  padding: 12px;
   max-width: 480px;
   margin: 0 auto;
+  padding: 12px;
 }
 
 .topic {

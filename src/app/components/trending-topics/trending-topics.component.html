@@ -1,5 +1,6 @@
 <h1 class="text-center">Top 25 Trending Topics in Dubai</h1>
 
+<!-- Topics list -->
 <section class="topics-container" *ngIf="!loading && !errorMessage">
   <ol>
     <li *ngFor="let trend of trends; let i = index" class="topic">
@@ -9,9 +10,13 @@
     </li>
   </ol>
 </section>
+
+<!-- Loader -->
 <div class="text-center loader-container" *ngIf="loading">
   <img src="assets/twitter-loading.gif" alt="loading..." width="60" />
 </div>
+
+<!-- Error message -->
 <div class="text-center error-text" *ngIf="!loading && !!errorMessage">
   {{errorMessage}}
 </div>

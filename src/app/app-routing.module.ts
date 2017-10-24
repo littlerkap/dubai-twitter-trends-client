@@ -6,6 +6,11 @@ import { TrendingTopicsComponent } from './components/trending-topics/trending-t
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { TweetsComponent } from './components/tweets/tweets.component';
 
+/**
+ * Routes Configuration for the application
+ * @const {array}
+ * @type {Routes}
+ */
 const appRoutes: Routes = [
   { path: 'topics', component: TrendingTopicsComponent },
   { path: 'topic', component: TweetsComponent },
@@ -13,6 +18,10 @@ const appRoutes: Routes = [
   { path: '**', component: PageNotFoundComponent }
 ];
 
+/**
+ * Routing module
+ * App module will import this module to work with router in application.
+ */
 @NgModule({
   imports: [
     RouterModule.forRoot(appRoutes)

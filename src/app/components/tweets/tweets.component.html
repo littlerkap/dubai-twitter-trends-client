@@ -2,12 +2,17 @@
   <span class="topic-name">{{query}}</span>
 </h1>
 
+<!-- Tweets list -->
 <section *ngIf="!loading && !errorMessage">
   <app-tweet *ngFor="let tweet of tweets" [data]="tweet"></app-tweet>
 </section>
+
+<!-- Loader -->
 <div class="text-center loader-container" *ngIf="loading">
   <img src="assets/twitter-loading.gif" alt="loading..." width="60" />
 </div>
+
+<!-- Error message -->
 <div class="text-center error-text" *ngIf="!loading && !!errorMessage">
   {{errorMessage}}
 </div>
