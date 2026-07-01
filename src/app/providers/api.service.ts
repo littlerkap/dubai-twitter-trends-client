@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Http, RequestOptions, URLSearchParams } from '@angular/http';
-import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/share';
+import { HttpClient, HttpParams } from '@angular/common/http';
+import { share } from 'rxjs/operators';
 
 import { environment } from '../../environments/environment';
 
@@ -16,7 +15,7 @@ export class ApiService {
    */
   url: string = environment.rootUrl + '/api';
 
-  constructor(public http: Http) { }
+  constructor(public http: HttpClient) { }
 
   /**
    * Performs a request with `get` http method.
@@ -26,27 +25,21 @@ export class ApiService {
    *
    * @returns `Observable`
    */
-  get(endpoint: string, params?: any, options?: RequestOptions) {
-    if (!options) {
-      options = new RequestOptions();
-    }
+  get(endpoint: string, params?: any, options?: any) {
+    let httpParams = new HttpParams();
 
-    /**
-     * Generate query string from optional params
-     */
     if (params) {
-      const p = new URLSearchParams();
-      // tslint:disable-next-line:forin
-      for (const k in params) {
-        p.set(k, params[k]);
+      for (const key in params) {
+        if (Object.prototype.hasOwnProperty.call(params, key)) {
+          httpParams = httpParams.set(key, String(params[key]));
+        }
       }
-
-      // Set the search field if we have params and don't already have
-      // a search field set in options.
-      options.search = !options.search && p || options.search;
     }
 
-    return this.http.get(this.url + '/' + endpoint, options).share();
+    const requestOptions = options ? { ...options } : {};
+    requestOptions.params = options && options.params ? options.params : httpParams;
+
+    return this.http.get(this.url + '/' + endpoint, requestOptions).pipe(share());
   }
 
   /**
@@ -57,8 +50,8 @@ export class ApiService {
    *
    * @returns `Observable`
    */
-  post(endpoint: string, body: any, options?: RequestOptions) {
-    return this.http.post(this.url + '/' + endpoint, body, options).share();
+  post(endpoint: string, body: any, options?: any) {
+    return this.http.post(this.url + '/' + endpoint, body, options).pipe(share());
   }
 
   /**
@@ -69,8 +62,8 @@ export class ApiService {
    *
    * @returns `Observable`
    */
-  put(endpoint: string, body: any, options?: RequestOptions) {
-    return this.http.put(this.url + '/' + endpoint, body, options).share();
+  put(endpoint: string, body: any, options?: any) {
+    return this.http.put(this.url + '/' + endpoint, body, options).pipe(share());
   }
 
   /**
@@ -80,8 +73,8 @@ export class ApiService {
    *
    * @returns `Observable`
    */
-  delete(endpoint: string, options?: RequestOptions) {
-    return this.http.delete(this.url + '/' + endpoint, options).share();
+  delete(endpoint: string, options?: any) {
+    return this.http.delete(this.url + '/' + endpoint, options).pipe(share());
   }
 
   /**
@@ -92,7 +85,7 @@ export class ApiService {
    *
    * @returns `Observable`
    */
-  patch(endpoint: string, body: any, options?: RequestOptions) {
-    return this.http.put(this.url + '/' + endpoint, body, options).share();
+  patch(endpoint: string, body: any, options?: any) {
+    return this.http.put(this.url + '/' + endpoint, body, options).pipe(share());
   }
 }

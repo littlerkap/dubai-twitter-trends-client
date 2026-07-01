@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
 
 // Services
 import { ApiService } from './providers/api.service';
@@ -26,7 +26,7 @@ import { TweetComponent } from './components/tweet/tweet.component';
   ],
   imports: [
     BrowserModule,
-    HttpModule,
+    HttpClientModule,
     AppRoutingModule
   ],
   providers: [
